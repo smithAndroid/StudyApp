@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.androidx_support['appcompat']
+    api rootProject.ext.androidx_support['constraintlayout']
+    api rootProject.ext.androidx_support['recyclerview']
+    api rootProject.ext.androidx_support['material']
+    api rootProject.ext.androidx_support['multidex']
+    api rootProject.ext.androidx_support['cardview']
+    testApi rootProject.ext.androidx_support['junit']
+    androidTestApi rootProject.ext.androidx_support['test.ext']
+    androidTestApi rootProject.ext.androidx_support['espresso']
+}
