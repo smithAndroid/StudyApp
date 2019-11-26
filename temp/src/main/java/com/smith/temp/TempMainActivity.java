@@ -75,7 +75,7 @@ public class TempMainActivity extends BaseActivity implements View.OnClickListen
 
     private void insertDb() {
         Student student = new Student();
-        student.setId(Long.valueOf(1));
+        student.setId(1L);
         student.setStudentNo(123456);
         student.setName("JACK");
         student.setAge(24);
@@ -83,11 +83,8 @@ public class TempMainActivity extends BaseActivity implements View.OnClickListen
         daoSession = ((BaseApplication)getApplication()).getDaoSession();
         daoSession.insertOrReplace(student);
         AsyncSession asyncSession = daoSession.startAsyncSession();
-        asyncSession.setListener(new AsyncOperationListener() {
-            @Override
-            public void onAsyncOperationCompleted(AsyncOperation operation) {
+        asyncSession.setListener(operation -> {
 
-            }
         });
         asyncSession.insert(student);
     }
@@ -103,9 +100,11 @@ public class TempMainActivity extends BaseActivity implements View.OnClickListen
         DaggerPersonComponent.create().inject(this);
 //        sb.append(person.toString()).append("\n").append(person1.toString()).append("\n").append(personB.toString()).append("\n").append(personB1.toString()).append("\n");
 //        tempText.setText(sb.toString());
-        Student s = daoSession.load(Student.class,Long.valueOf(1));
+        Student s = daoSession.load(Student.class,1L);
         StringBuilder sb = new StringBuilder();
         sb.append(s.getId()).append(s.getStudentNo()).append(s.getName()).append(s.getAge()).append(s.getAddress());
+        sb.append("world");
+        sb.append("hello1");
         tempText.setText(sb.toString());
     }
 }
