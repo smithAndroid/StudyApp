@@ -92,7 +92,7 @@ public class TempMainActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        String tmp = "hello";
+        String tmp = "hello git";
         resetDagger();
     }
 
