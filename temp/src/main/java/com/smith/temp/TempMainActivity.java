@@ -105,6 +105,7 @@ public class TempMainActivity extends BaseActivity implements View.OnClickListen
         Student s = daoSession.load(Student.class,Long.valueOf(1));
         StringBuilder sb = new StringBuilder();
         sb.append(s.getId()).append(s.getStudentNo()).append(s.getName()).append(s.getAge()).append(s.getAddress());
+        sb.append("world");
         tempText.setText(sb.toString());
     }
 }
