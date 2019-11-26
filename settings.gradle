@@ -1,2 +1,2 @@
-include ':app', ':uimodule', ':baselibrary'
+include ':app', ':uimodule', ':baselibrary', ':temp'
 rootProject.name='StudyApp'
