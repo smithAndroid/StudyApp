@@ -31,6 +31,7 @@ ext {
     //androidx version配置
     androidx_versions = [
             'appcompat_v': '1.1.0',
+            'lifecycle-extensions':'2.1.0',
             'constraintlayout_v': '1.1.3',
             'recyclerview_v': '1.1.0',
             'cardview_v': '1.0.0',
@@ -41,6 +42,7 @@ ext {
 
     androidx_support = [
             'appcompat': "androidx.appcompat:appcompat:${androidx_versions['appcompat_v']}",
+            'lifecycle-extensions': "androidx.lifecycle:lifecycle-extensions:${androidx_versions['lifecycle-extensions']}",
             'constraintlayout': "androidx.constraintlayout:constraintlayout:${androidx_versions['constraintlayout_v']}",
             'recyclerview': "androidx.recyclerview:recyclerview:${androidx_versions['recyclerview_v']}",
             'material': "com.google.android.material:material:${androidx_versions['material_v']}",

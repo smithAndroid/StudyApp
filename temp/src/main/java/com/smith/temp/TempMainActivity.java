@@ -1,6 +1,7 @@
 package com.smith.temp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -11,8 +12,10 @@ import com.smith.temp.dagger.DaggerPersonComponent;
 import com.smith.temp.dagger.Food;
 import com.smith.temp.dagger.Person;
 import com.smith.temp.dagger.PersonModule;
+import com.smith.temp.dialog.MyDialogFragment;
 import com.smith.temp.greendao.Student;
 import com.smith.temp.greendao.db.DaoSession;
+import com.smith.temp.recyclerview.TempRcvActivity;
 
 
 import org.greenrobot.greendao.async.AsyncOperation;
@@ -94,6 +97,17 @@ public class TempMainActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         String tmp = "hello git";
         resetDagger();
+        showFragmentDialog();
+        startActivity();
+    }
+
+    private void startActivity() {
+        Intent intent = new Intent(this, TempRcvActivity.class);
+        this.startActivity(intent);
+    }
+
+    private void showFragmentDialog() {
+        MyDialogFragment.newInstance("Hello FragmentDialog",false).show(getSupportFragmentManager(),"MyDialogFragment");
     }
 
     private void resetDagger() {
